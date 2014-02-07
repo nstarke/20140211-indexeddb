@@ -3,6 +3,8 @@
   <head>
     <title>2014 February 11 - IndexexDB Presentation</title>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="usage.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,7 +18,12 @@
         </div>
         </header>
         <div class="text-center">
-          <a href="usage.html" class="btn btn-primary">Start</a>
+          <input type="button" class="btn btn-info" value="Find current usage amount" id="current-usage">
+          <h4>Amount used:</h4>
+          <h2 id="used-amount"> </h2>
+          <h4>Amount available:</h4>
+          <h3 id="available-amount"></h3>
+          <a id="import-data-link" href="create.html" class="hide btn btn-warning">Import some data</a>
         </div>
       <div class="panel panel-default">
         <footer class="text-center panel-footer">

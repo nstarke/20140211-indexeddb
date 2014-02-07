@@ -1,6 +1,11 @@
 $(function(){
     $('#import-data').on('click', function(){
         var last = 376;
+        var seconds = 0;
+        var interval = setInterval(function(){
+            seconds++;
+            $('#seconds').text(seconds);
+        }, 1000);
         function fetch(){
             if (last){
                 $.ajax({
@@ -13,6 +18,9 @@ $(function(){
                         });
                     }
                 });
+            } else {
+                $('#back-to-usage').removeClass('hide');
+                clearInterval(interval);
             }
         }
         fetch();

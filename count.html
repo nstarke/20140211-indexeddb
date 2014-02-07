@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <title>2014 February 11 - IndexexDB Presentation</title>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="count.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
   </head>
   <body>
@@ -16,7 +18,10 @@
         </div>
         </header>
         <div class="text-center">
-          <a href="usage.html" class="btn btn-primary">Start</a>
+          <input type="button" class="btn btn-default" value="Count all" id="count-all">
+          <h2 id="count"></h2>
+          <h3><span id="seconds">0</span> seconds running</h3>
+          <a id="go-to-get" href="get.html" class="btn btn-primary hide">Retrieving data</a>
         </div>
       <div class="panel panel-default">
         <footer class="text-center panel-footer">
