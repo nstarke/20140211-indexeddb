@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <title>2014 February 11 - IndexexDB Presentation</title>
-    <script data-main="index.js" src="bower_components/requirejs/require.js"></script>
+    <script src="bower_components/jquery/jquery.js">
+    <script src="bower_components/indexeddbshim/dist/IndexedDBShim.js"></script>
+    <script src="create.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
   </head>
   <body>
@@ -17,7 +19,8 @@
         </div>
         </header>
         <div class="text-center">
-          <a href="create.html" class="btn btn-primary">Start</a>
+          <p><span id="parts-left">376</span> parts left</p>
+          <input type="button" value="Import tab delimited ip address data set" class="btn btn-success" id="import-data" />
         </div>
       <div class="panel panel-default">
         <footer class="text-center panel-footer">
