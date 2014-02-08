@@ -1,5 +1,6 @@
 $(function(){
     $('#import-data').on('click', function(){
+        logEvent({ event: 'Import data clicked' });
         var last = 376;
         var seconds = 0;
         var interval = setInterval(function(){
@@ -19,8 +20,9 @@ $(function(){
                     }
                 });
             } else {
-                $('#back-to-usage').removeClass('hide');
                 clearInterval(interval);
+                logEvent({ event: 'Data successfully imported', seconds: seconds });
+                $('#back-to-usage').removeClass('hide');
             }
         }
         fetch();
@@ -40,7 +42,7 @@ $(function(){
             if(callback) callback(e.target.result);
          }
          request.onerror = function (e) {
-            console.log(e);
+            logEvent(e, true);
          }
     }
 
@@ -53,7 +55,7 @@ $(function(){
                 if (callback) callback(transaction);
             };
             op.onerror = function(e) {
-                console.log(e)
+                logEvent(e, true);   
             }
         }
 
@@ -101,28 +103,5 @@ $(function(){
             });
         }
     }
-    //This will create the initial database for us.
-    var request = indexedDB.open('20140211-indexeddb-presentation', databaseVersion);
-    
-    //fires whenever database connection is opened up successfully.
-    request.onsuccess = function(e) {
-        var db = e.target.result;
-    }
-
-    //fires whenever an error occurs when opening a database connection.
-    request.onerror = function(e) {
-        console.log(e);
-    }
-
-    //fires whenever the version number for the database is higher than the current database version number.
-    //NOTE: if the version number passed to the database is LESS than the current, an exception will be thrown.
-    request.onupgradeneeded = function(e){
-        //this is where database "migrations" are handled.
-        var db = e.target.result;
-        var ip = db.createObjectStore('ip-address', { keyPath: 'id', autoIncrement: true });
-        ip.createIndex('begin_num', 'begin_num');
-        ip.createIndex('end_num', 'end_num');
-        ip.createIndex('country', 'country');
-        ip.createIndex('state', 'state');
-    }
+    logEvent({ event: 'Create page loaded' });
 });

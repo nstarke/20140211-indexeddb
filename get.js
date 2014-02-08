@@ -9,6 +9,7 @@ $(function(){
         fetch(ipToInteger($('#public-ip-address').val()), function(result){
             clearInterval(interval);
             $('#result').text(JSON.stringify(result));
+            $('#go-to-clear').removeClass('hide');
         });
     });
 
@@ -21,7 +22,7 @@ $(function(){
             if(callback) callback(e.target.result);
          }
          request.onerror = function (e) {
-            console.log(e);
+            logError(e);
          }
     }
     
@@ -53,4 +54,5 @@ $(function(){
             })
         }
     }
+    logEvent({ event: 'Get page loaded' });
 });

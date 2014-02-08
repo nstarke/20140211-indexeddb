@@ -4,8 +4,7 @@
     <title>2014 February 11 - IndexexDB Presentation</title>
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="log.js"></script>
-    <script src="bower_components/indexeddbshim/dist/IndexedDBShim.js"></script>
-    <script src="create.js"></script>
+    <script src="clear.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
   </head>
   <body>
@@ -20,10 +19,9 @@
         </div>
         </header>
         <div class="text-center">
-          <p><span id="parts-left">376</span> parts left</p>
-          <p><span id="seconds">0</span> seconds so far</p>
-          <input type="button" value="Import tab delimited ip address data set" class="btn btn-success" id="import-data" />
-          <a id="back-to-usage" href="usage.html#created" class="btn btn-info hide">Back to usage</a>
+          <h2 id="cleared" class="hide">All data deleted</h2>
+          <h3><span id="seconds">0</span> seconds running</h3>
+          <input type="button" class="btn btn-danger" id="clear-all" value="Delete all records">
         </div>
       <div class="panel panel-default">
         <footer class="text-center panel-footer">

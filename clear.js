@@ -1,16 +1,16 @@
 $(function(){
-    $('#count-all').on('click', function(){
-        logEvent({ event: 'Count all clicked' });
+    $('#clear-all').on('click', function(){
+        logEvent({ event: 'Clear all clicked', collection: 'ip-address'});
         var seconds = 0;
         var $seconds = $('#seconds');
         var interval = setInterval(function(){
             seconds++;
             $seconds.text(seconds);
         }, 1000);
-        count('ip-address', function(numberOfRecords){
+        clear('ip-address', function(){
+            logEvent({event: 'All records removed', collection: 'ip-address'});
             clearInterval(interval);
-            $('#count').text(numberOfRecords + ' total records');
-            logEvent({ event: 'Count all reported', collection: 'ip-address', count: numberOfRecords });
+            $('#cleared').removeClass('hide');
         });
     });
 
@@ -28,25 +28,25 @@ $(function(){
     }
 
     //this is used to fill a table with data.
-    var count = function(collection, callback, transaction) {
-        function _count(transaction){
+    var clear = function(collection, callback, transaction) {
+        function _clear(transaction){
             var op = transaction.objectStore(collection)
-                        .count();
+                        .clear();
              op.onsuccess = function(e){
-                if (callback) callback(e.target.result);
+                if (callback) callback();
             };
             op.onerror = function(e) {
                 logEvent(e, true);
             }
         }
         if (transaction) {
-            _count(transaction)
+            _clear(transaction)
         } else {
             open(function(db){
                 var transaction = db.transaction([collection], 'readwrite');
-                _count(transaction);
+                _clear(transaction);
             })
         }
     }
-    logEvent({ event: 'Count page loaded' });
+    logEvent({ event: 'Clear page loaded'});
 });
