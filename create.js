@@ -67,7 +67,7 @@ $(function(){
                 'sub_block',
                 'begin_octet',
                 'end_octet',
-                'county',
+                'country',
                 'state',
                 'city',
                 'zip',

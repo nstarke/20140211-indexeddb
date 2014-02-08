@@ -6,9 +6,23 @@ $(function(){
             seconds++;
             $seconds.text(seconds);
         }, 1000);
-        fetch(ipToInteger($('#public-ip-address').val()), function(result){
+        var ipOctal = $('#public-ip-address').val();
+        var ipInteger = ipToInteger(ipOctal);
+        fetch(ipInteger, function(result){
             clearInterval(interval);
-            $('#result').text(JSON.stringify(result));
+            $('#ip-octal').text(ipOctal);
+            $('#ip-integer').text(ipInteger);
+            $('#ip-block-range-begin-integer').text(result.begin_num);
+            $('#ip-block-range-end-integer').text(result.end_num);
+            $('#ip-sub-block-integer').text(result.sub_block);
+            $('#ip-block-range-begin-octal').text(result.begin_octet);
+            $('#ip-block-range-end-octal').text(result.end_octet);
+            $('#country').text(result.country);
+            $('#city').text(result.city);
+            $('#state').text(result.state);
+            $('#zip').text(result.zip);
+            $('#latitude').text(result.latitude);
+            $('#longitude').text(result.longitude);
             $('#go-to-clear').removeClass('hide');
         });
     });

@@ -21,7 +21,67 @@
         <div class="text-center">
           <input type="text" placeholder="public ip address" id="public-ip-address">
           <p><span id="seconds">0</span> seconds so far</p>
-          <h2 id="result"></h2>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>
+                  IP Address (Octal)
+                </th>
+                <th>
+                  IP Address (Integer)
+                </th>
+                <th>
+                  IP Block Range Begin - Integer
+                </th>
+                <th>
+                  IP Block Range End - Integer
+                </th>
+                <th>
+                  IP Sub Block - Integer
+                </th>
+                <th>
+                  IP Block Range Begin - Octal
+                </th>
+                <th>
+                  IP Block Range End - Octal
+                </th>
+                <th>
+                  Country
+                </th>
+                <th>
+                  State
+                </th>
+                <th>
+                  City
+                </th>
+                <th>
+                  Zip
+                </th>
+                <th>
+                 Latitude
+                </th>
+                <th>
+                  Longitude
+                </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="ip-octal"></td>
+                  <td id="ip-integer"></td>
+                  <td id="ip-block-range-begin-integer"></td>
+                  <td id="ip-block-range-end-integer"></td>
+                  <td id="ip-sub-block-integer"></td>
+                  <td id="ip-block-range-begin-octal"></td>
+                  <td id="ip-block-range-end-octal"></td>
+                  <td id="country"></td>
+                  <td id="state"></td>
+                  <td id="city"></td>
+                  <td id="zip>"></td>
+                  <td id="latitude"></td>
+                  <td id="longitude"></td>
+                </tr>
+              <tbody>
+          </table>
           <input type="button" class="btn btn-primary" id="fetch-location" value="Fetch Location Data">
           <a id="go-to-clear" href="clear.html" class="hide btn btn-primary">Go to clear</a>
         </div>
