@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <title>2014 February 11 - IndexexDB Presentation</title>
-    <script data-main="index.js" src="bower_components/requirejs/require.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="get.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,48 +17,19 @@
           <h4>starke.nicholas@gmail.com</h4>
         </div>
         </header>
-        <script type="text/x-handlebars">
-          <div>
-            {{outlet}}
-          </div>
-        </script>
+        <div class="text-center">
+          <input type="text" placeholder="public ip address" id="public-ip-address">
+          <p><span id="seconds">0</span> seconds so far</p>
+          <h2 id="result"></h2>
+          <input type="button" class="btn btn-primary" id="fetch-location" value="Fetch Location Data">
+          <a id="go-to-update" href="update.html" class="hide btn btn-primary">Go to update</a>
+        </div>
       <div class="panel panel-default">
         <footer class="text-center panel-footer">
           <h4>Special thanks to the IMT Group for hosting this meetup</h4>
         </footer>
       </div>
     </div>
-    <script type="text/x-handlebars" data-template-name="index">
-       <div>
-         {{#link-to 'introduction' class="btn btn-primary" }}Start{{/link-to }}
-       </div>
-    </script>
-    <script type="text/x-handlebars" data-template-name="introduction">
-    
-    </script>
-    <script type="text/x-handlebars" data-template-name="menu">
-
-    </script>
-    <script type="text/x-handlebars" data-template-name="availability">
-      <input type="file" id="create-data-set" value="Select Tab Delimited Data Set" class="btn btn-success">
-    </script>
-    <script type="text/x-handlebars" data-template-name="limits">
-    
-    </script>
-    <script type="text/x-handlebars" data-template-name="create">
-    
-    </script>
-    <script type="text/x-handlebars" data-template-name="get">
-    
-    </script>
-    <script type="text/x-handlebars" data-template-name="update">
-    
-    </script>
-    <script type="text/x-handlebars" data-template-name="remove">
-    
-    </script>
-    <script type="text/x-handlebars" data-template-name="conclusion">
- 
     </script>
   </body>
 </html>
